@@ -34,6 +34,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+  release:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
     - name: version
       run: echo "::set-output name=version::$(./bin/azblogfilter --version)"
       id: version
