@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: release
-      uses: actions/create-release@v1
+      uses: jefeish/create-release@main
       id: create_release
       with:
         tag_name: Tag ${{ env.GITHUB_RUN_NUMBER }}
