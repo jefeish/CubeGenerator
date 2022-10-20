@@ -40,13 +40,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: version
-      run: echo "::set-output name=version::$(./bin/azblogfilter --version)"
+      run: echo "::set-output name=version::$(git log |grep commit | head -n1 | awk '{print $2}')"
       id: version
     - name: release
       uses: actions/create-release@v1
       id: create_release
       with:
-        tag_name: Tag ${{ steps.version.outputs.version }}
+        tag_name: Tag ${{ env.version }}
         release_name: Release ${{ steps.version.outputs.version }}
         body: |
           Changes in this Release
