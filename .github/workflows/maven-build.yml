@@ -47,7 +47,7 @@ jobs:
       with:
         tag_name: Tag ${{ env.GITHUB_RUN_NUMBER }}
         release_name: Release ${{ env.GITHUB_RUN_NUMBER }}
-        body_path: ./CHANGELOG.md
+        body_path: CHANGELOG.md
         draft: false
         prerelease: false
       env:
