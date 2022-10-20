@@ -45,10 +45,7 @@ jobs:
       with:
         tag_name: Tag ${{ env.GITHUB_RUN_NUMBER }}
         release_name: Release ${{ env.GITHUB_RUN_NUMBER }}
-        body: |
-          Changes in this Release
-          - First Change
-          - Second Change
+        body_path: ./CHANGELOG.md
         draft: false
         prerelease: false
       env:
