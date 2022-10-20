@@ -75,9 +75,9 @@
 
   <distributionManagement>
     <repository>
-      <id>CubeGenerator</id>
+      <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/jefeish/hello-world</url>
+      <url>https://maven.pkg.github.com/jefeish/CubeGenerator</url>
     </repository>
   </distributionManagement>
 </project>
