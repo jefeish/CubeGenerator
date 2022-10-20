@@ -40,7 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: debug
-      run: ls -la; pwd
+      uses: actions/checkout@v3
+      run: ls -la; pwd; ls -la
     - name: release
       uses: jefeish/create-release@main
       id: create_release
