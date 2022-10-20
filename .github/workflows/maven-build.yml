@@ -34,10 +34,6 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: version
-      run: | 
-         echo "VERSION_NUMBER_WITH_OFFSET=$((1000+GITHUB_RUN_NUMBER))" >> $GITHUB_ENV
-      id: version
 
   release:
     needs: [build]
@@ -47,8 +43,8 @@ jobs:
       uses: actions/create-release@v1
       id: create_release
       with:
-        tag_name: Tag ${{ env.VERSION_NUMBER_WITH_OFFSET }}
-        release_name: Release ${{ env.VERSION_NUMBER_WITH_OFFSET }}
+        tag_name: Tag ${{ GITHUB_RUN_NUMBER }}
+        release_name: Release ${{ GITHUB_RUN_NUMBER }}
         body: |
           Changes in this Release
           - First Change
