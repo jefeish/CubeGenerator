@@ -39,6 +39,8 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
+    - name: debug
+      run: ls -la
     - name: release
       uses: jefeish/create-release@main
       id: create_release
