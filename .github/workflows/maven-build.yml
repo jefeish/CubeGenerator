@@ -34,14 +34,14 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: version
+      run: echo "::set-output name=version::$(git log |grep commit | head -n1 | awk '{print $2}')"
+      id: version
 
   release:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-    - name: version
-      run: echo "::set-output name=version::$(git log |grep commit | head -n1 | awk '{print $2}')"
-      id: version
     - name: release
       uses: actions/create-release@v1
       id: create_release
