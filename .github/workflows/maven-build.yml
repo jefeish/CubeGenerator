@@ -22,6 +22,7 @@ jobs:
       run: mvn --batch-mode --update-snapshots verify
 
   build:
+    needs: [verify]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
